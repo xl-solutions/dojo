@@ -27,7 +27,7 @@ class SpiralMatrix
 
       while n <= total_items do
         matrix[@x][@y] = n
-        step!(n, matrix)
+        walk!(n, matrix)
         n += 1
       end
 
@@ -35,7 +35,7 @@ class SpiralMatrix
     end
   end
 
-  def step!(n, matrix)
+  def walk!(n, matrix)
     x = @x
     y = @y
 
@@ -52,7 +52,7 @@ class SpiralMatrix
 
     if collided?(x, y, matrix)
       turn_right!
-      step!(n, matrix) unless completed?(n)
+      walk!(n, matrix) unless completed?(n)
     else
       @x = x
       @y = y
